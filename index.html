@@ -1000,7 +1000,7 @@ Output ONLY valid JSON, ONLY in the following format:
 For code, use relative paths without output folder name. Do not include any other text.`
         };
 
-        const PROXY_SERVER_URL = 'http://127.0.0.1:8080/proxy';
+        const PROXY_SERVER_URL = window.location.origin + '/proxy';
 
         class DataManager {
             constructor() {
