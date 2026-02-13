@@ -690,8 +690,8 @@ This work is licensed under the GNU Affero General Public License version 3.0 or
             <div class="sidebar-footer">
                 <button class="btn-new-chat" id="new-chat-btn">+ New Chat</button>
                 <div class="social-links">
-                    <a href="https://github.com/dr-ankurcodes/" class="social-icon" title="GitHub"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
-                    <a href="https://www.youtube.com/@dr.ankurcodes" class="social-icon" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+                    <a href="#" class="social-icon" title="GitHub"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                    <a href="#" class="social-icon" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
                 </div>
             </div>
         </nav>
@@ -758,6 +758,7 @@ This work is licensed under the GNU Affero General Public License version 3.0 or
                             <option value="openai">OpenAI</option>
                             <option value="grok">Grok</option>
                             <option value="anthropic">Anthropic</option>
+                            <option value="ollama-cloud">Ollama (Cloud)</option>
                             <option value="ollama">Ollama (Local)</option>
                         </select>
                     </div>
@@ -795,6 +796,10 @@ This work is licensed under the GNU Affero General Public License version 3.0 or
                         </label>
                         <div id="advanced-config" style="max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.4s ease, opacity 0.4s ease; margin-top: 0; border-left: 2px solid var(--glass-border); padding-left: 0;">
                             <div style="padding-top: 15px; padding-left: 15px;">
+                                <div class="form-group">
+                                    <label class="form-label">Proxy Server URL <span class="info-icon" data-info="Local server to bypass CORS. Default: http://127.0.0.1:8080/proxy">i</span></label>
+                                    <input type="text" class="form-input" id="setting-proxy-url" placeholder="http://127.0.0.1:8080/proxy">
+                                </div>
                                 <div class="form-group">
                                     <label class="form-label">Request JSON Template <span class="info-icon" data-info="JSON structure sent to API">i</span></label>
                                     <textarea class="form-textarea" id="setting-req-template" style="font-family:monospace; font-size:0.8rem;"></textarea>
@@ -995,6 +1000,8 @@ Output ONLY valid JSON, ONLY in the following format:
 For code, use relative paths without output folder name. Do not include any other text.`
         };
 
+        const PROXY_SERVER_URL = 'http://127.0.0.1:8080/proxy';
+
         class DataManager {
             constructor() {
                 this.STORAGE_KEY = 'hey_leo_data';
@@ -1006,7 +1013,8 @@ For code, use relative paths without output folder name. Do not include any othe
                 return {
                     settings: {
                         provider: '', apiKey: '', endpoint: '', modelName: '', temperature: 0.7,
-                        advanced: { requestTemplate: '', responsePath: '' }
+                        advanced: { requestTemplate: '', responsePath: '' },
+                        proxyUrl: PROXY_SERVER_URL
                     },
                     chats: [],
                     currentChatId: null,
@@ -1938,8 +1946,8 @@ For code, use relative paths without output folder name. Do not include any othe
             if (!settings.endpoint) {
                 throw new Error("API Configuration incomplete.");
             }
-            if (!navigator.onLine) {
-                throw new Error("No internet connection. Please check your network.");
+            if (!settings.proxyUrl) {
+                throw new Error("Proxy server URL not configured.");
             }
 
             const messages = [{role:'system', content: system}, ...history.map(m => ({role: m.role, content: m.content}))];
@@ -1962,35 +1970,33 @@ For code, use relative paths without output folder name. Do not include any othe
             }
 
             try {
-                const response = await fetch(settings.endpoint, {
+                const response = await fetch(settings.proxyUrl, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${settings.apiKey}`
+                        'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(body),
+                    body: JSON.stringify({
+                        endpoint: settings.endpoint,
+                        apiKey: settings.apiKey,
+                        body: body
+                    }),
                     signal: signal
                 });
 
                 if (!response.ok) {
-                    let errorMsg = `API Error ${response.status}`;
+                    let errorMsg = `Proxy Error ${response.status}`;
                     try {
                         const errData = await response.json();
                         if (errData.error && typeof errData.error === 'string') {
-                            errorMsg = `API Error ${response.status}: ${errData.error}`;
+                            errorMsg = `Error: ${errData.error}`;
                         } else if (errData.error && errData.error.message) {
-                            errorMsg = `API Error ${response.status}: ${errData.error.message}`;
-                        } else if (errData.message) {
-                            errorMsg = `API Error ${response.status}: ${errData.message}`;
-                        } else if (errData.detail) {
-                            errorMsg = `API Error ${response.status}: ${errData.detail}`;
+                            errorMsg = `Error: ${errData.error.message}`;
                         } else {
                             const str = JSON.stringify(errData);
-                            errorMsg = `API Error ${response.status}: ${str.substring(0, 100)}...`;
+                            errorMsg = `Error: ${str.substring(0, 100)}...`;
                         }
                     } catch (e) {
-                        errorMsg = `API Error ${response.status}: ${response.statusText}`;
-                        console.error('API Error Details:', await response.text());
+                        errorMsg = `Error: ${response.statusText}`;
                     }
                     throw new Error(errorMsg);
                 }
@@ -2007,7 +2013,7 @@ For code, use relative paths without output folder name. Do not include any othe
             } catch (error) {
                 if (error.name === 'AbortError') throw error;
                 if (error.message.includes('Failed to fetch')) {
-                    throw new Error("Network Error: Could not reach API endpoint. Please check console/network tab for details.");
+                    throw new Error("Network Error: Could not reach proxy server. Please ensure server.js is running.");
                 }
                 throw error;
             }
@@ -2087,6 +2093,7 @@ For code, use relative paths without output folder name. Do not include any othe
                 document.getElementById('setting-api-key').value = s.apiKey;
                 document.getElementById('setting-endpoint').value = s.endpoint;
                 document.getElementById('setting-model').value = s.modelName;
+                document.getElementById('setting-proxy-url').value = s.proxyUrl || PROXY_SERVER_URL;
                 document.getElementById('setting-temp').value = s.temperature;
                 document.getElementById('temp-val').textContent = s.temperature;
                 document.getElementById('setting-req-template').value = s.advanced.requestTemplate;
@@ -2202,6 +2209,10 @@ For code, use relative paths without output folder name. Do not include any othe
                 endpoint.value = 'https://api.anthropic.com/v1/messages';
                 model.placeholder = 'claude-3-5-sonnet-20240620';
                 resPath.value = 'content.0.text';
+            } else if (p === 'ollama-cloud') {
+                endpoint.value = 'https://ollama.com/api/chat';
+                model.placeholder = 'glm-4.7:cloud';
+                resPath.value = 'message.content';
             } else if (p === 'ollama') {
                 endpoint.value = 'http://localhost:11434/api/chat';
                 model.placeholder = 'llama3';
@@ -2220,6 +2231,7 @@ For code, use relative paths without output folder name. Do not include any othe
                 apiKey: document.getElementById('setting-api-key').value,
                 endpoint: document.getElementById('setting-endpoint').value,
                 modelName: document.getElementById('setting-model').value,
+                proxyUrl: document.getElementById('setting-proxy-url').value,
                 temperature: document.getElementById('setting-temp').value
             });
             dataManager.updateAdvancedSettings({
@@ -2268,6 +2280,7 @@ For code, use relative paths without output folder name. Do not include any othe
             const key = document.getElementById('setting-api-key').value;
             const model = document.getElementById('setting-model').value;
             const temp = document.getElementById('setting-temp').value;
+            const proxyUrl = document.getElementById('setting-proxy-url').value || PROXY_SERVER_URL;
             const resPath = document.getElementById('setting-res-path').value;
             
             if(!endpoint || !provider) {
@@ -2281,10 +2294,10 @@ For code, use relative paths without output folder name. Do not include any othe
             try {
                 if (!navigator.onLine) throw new Error("No internet connection.");
                 const body = { model: model, messages: [{role:'user', content:'hi'}], temperature: parseFloat(temp), stream: false };
-                const res = await fetch(endpoint, {
+                const res = await fetch(proxyUrl, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${key}` },
-                    body: JSON.stringify(body)
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ endpoint, apiKey: key, body })
                 });
                 if(res.ok) {
                     const data = await res.json();
@@ -2292,15 +2305,15 @@ For code, use relative paths without output folder name. Do not include any othe
                     if(reply) showToast('API Connection Successful!', 'success');
                     else showToast('API Connected but response format might be incorrect.', 'error');
                 } else {
-                    let errorMsg = `API Error: ${res.status}`;
+                    let errorMsg = `Error: ${res.status}`;
                     try {
                         const errData = await res.json();
-                        if (errData.error && typeof errData.error === 'string') errorMsg = `API Error ${res.status}: ${errData.error}`;
-                        else if (errData.error && errData.error.message) errorMsg = `API Error ${res.status}: ${errData.error.message}`;
-                        else if (errData.message) errorMsg = `API Error ${res.status}: ${errData.message}`;
-                        else errorMsg = `API Error ${res.status}: ${JSON.stringify(errData).substring(0, 50)}...`;
+                        if (errData.error && typeof errData.error === 'string') errorMsg = `Error: ${errData.error}`;
+                        else if (errData.error && errData.error.message) errorMsg = `Error: ${errData.error.message}`;
+                        else if (errData.message) errorMsg = `Error: ${errData.message}`;
+                        else errorMsg = `Error: ${JSON.stringify(errData).substring(0, 50)}...`;
                     } catch(e) {
-                        errorMsg = `API Error ${res.status}. Check console.`;
+                        errorMsg = `Error ${res.status}. Check console.`;
                         console.error('Check API failed:', await res.text());
                     }
                     showToast(errorMsg, 'error');
