@@ -1,6 +1,6 @@
 # Hey Leo! - AI Agent
 
-<p align="center"> <img src="logo.svg" alt="Hey Leo! Logo" width="240"> </p>
+<p align="center"> <img src="public/logo.svg" alt="Hey Leo! Logo" width="240"> </p>
 
 An innovative open-source AI agent that runs entirely in your browser or in the cloud - No downloads, no installation, privacy-focused. **Try it now at https://heyleo.onrender.com/**
 
