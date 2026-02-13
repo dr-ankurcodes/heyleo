@@ -88,7 +88,8 @@ const server = http.createServer(async (req, res) => {
         '.js': 'application/javascript',
         '.png': 'image/png',
         '.jpg': 'image/jpeg',
-        '.ico': 'image/x-icon'
+        '.ico': 'image/x-icon',
+        '.svg': 'image/svg+xml'
       }[ext] || 'application/octet-stream';
 
       res.writeHead(200, { 'Content-Type': contentType });
