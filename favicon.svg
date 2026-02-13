@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <!-- Blue Halo Gradient -->
+    <radialGradient id="haloGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="50%" style="stop-color:#00d2ff;stop-opacity:0.6" />
+      <stop offset="80%" style="stop-color:#00aaff;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#0a3a5c;stop-opacity:0" />
+    </radialGradient>
+    
+    <!-- Sun Core Gradient -->
+    <radialGradient id="sunGradient" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="40%" style="stop-color:#FFA500;stop-opacity:1" />
+      <stop offset="80%" style="stop-color:#FF6B35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF4500;stop-opacity:1" />
+    </radialGradient>
+    
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Blue Halo - outward glow -->
+  <circle cx="32" cy="32" r="24" fill="url(#haloGradient)"/>
+  
+  <!-- Subtle outer ring -->
+  <circle cx="32" cy="32" r="21" fill="none" stroke="#00d2ff" stroke-width="0.32" opacity="0.3"/>
+  
+  <!-- Sun Core -->
+  <circle cx="32" cy="32" r="12.8" fill="url(#sunGradient)" filter="url(#glow)"/>
+  
+  <!-- Small glowing particles in halo -->
+  <circle cx="19" cy="28.8" r="0.8" fill="#00d2ff" opacity="0.6"/>
+  <circle cx="44.8" cy="30.4" r="0.64" fill="#00d2ff" opacity="0.5"/>
+  <circle cx="32" cy="17.6" r="0.58" fill="#00aaff" opacity="0.5"/>
+  <circle cx="20.8" cy="38.4" r="0.64" fill="#00d2ff" opacity="0.4"/>
+  <circle cx="46.4" cy="36.8" r="0.74" fill="#00d2ff" opacity="0.5"/>
+  <circle cx="25.6" cy="20.8" r="0.48" fill="#00aaff" opacity="0.4"/>
+  <circle cx="40" cy="19.2" r="0.58" fill="#00aaff" opacity="0.5"/>
+  <circle cx="17.6" cy="33.6" r="0.48" fill="#00aaff" opacity="0.4"/>
+  <circle cx="48" cy="44.8" r="0.64" fill="#00d2ff" opacity="0.4"/>
+  <circle cx="16" cy="40" r="0.51" fill="#00aaff" opacity="0.3"/>
+  <circle cx="49.6" cy="25.6" r="0.58" fill="#00aaff" opacity="0.4"/>
+</svg>
