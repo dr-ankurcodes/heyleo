@@ -690,8 +690,8 @@ This work is licensed under the GNU Affero General Public License version 3.0 or
             <div class="sidebar-footer">
                 <button class="btn-new-chat" id="new-chat-btn">+ New Chat</button>
                 <div class="social-links">
-                    <a href="#" class="social-icon" title="GitHub"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
-                    <a href="#" class="social-icon" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+                    <a href="https://github.com/dr-ankurcodes/" class="social-icon" title="GitHub"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                    <a href="https://www.youtube.com/@dr.ankurcodes" class="social-icon" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
                 </div>
             </div>
         </nav>
@@ -801,11 +801,11 @@ This work is licensed under the GNU Affero General Public License version 3.0 or
                                     <input type="text" class="form-input" id="setting-proxy-url" placeholder="http://127.0.0.1:8080/proxy">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label">Request JSON Template <span class="info-icon" data-info="JSON structure sent to API">i</span></label>
+                                    <label class="form-label">Request JSON Template <span class="info-icon" data-info='JSON structure sent to API e.g. { "model": {{model}}, "messages": {{messages}}, "temperature": {{temperature}} }'>i</span></label>
                                     <textarea class="form-textarea" id="setting-req-template" style="font-family:monospace; font-size:0.8rem;"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label">Response JSON Path <span class="info-icon" data-info="e.g. message.content">i</span></label>
+                                    <label class="form-label">Response JSON Path <span class="info-icon" data-info="Path of actual response content inside received JSON e.g. message.content">i</span></label>
                                     <input type="text" class="form-input" id="setting-res-path">
                                 </div>
                             </div>
@@ -867,7 +867,7 @@ This work is licensed under the GNU Affero General Public License version 3.0 or
                 </div>
                 <div class="form-group" id="pers-name-group">
                     <label class="form-label">Name</label>
-                    <input type="text" class="form-input" id="pers-name" value="Bot">
+                    <input type="text" class="form-input" id="pers-name" value="Leo">
                 </div>
                 <div class="form-group">
                     <label class="form-label" id="pers-desc-label">Personality Description</label>
@@ -1181,7 +1181,7 @@ For code, use relative paths without output folder name. Do not include any othe
             }
             _getDefaultMetadataForMode(mode) {
                 switch (mode) {
-                    case 'chat': return { personality: { name: 'Bot', isManual: true, content: 'You are a helpful AI assistant.' } };
+                    case 'chat': return { personality: { name: 'Leo', isManual: true, content: 'You are a helpful AI assistant.' } };
                     case 'code': return { status: 'idle', subtasks: [], generatedCode: null };
                     case 'custom': return { systemPrompt: 'You are a helpful AI assistant.' };
                     default: return {};
@@ -1426,7 +1426,7 @@ For code, use relative paths without output folder name. Do not include any othe
             }
 
             const row = document.createElement('div');
-            row.className = `message-row ${msg.role === 'user' ? 'user' : 'bot'}`;
+            row.className = `message-row ${msg.role === 'user' ? 'user' : 'leo'}`;
             if (msg.status === 'error') row.classList.add('msg-error');
             row.dataset.ts = msgTs;
             
@@ -1492,9 +1492,9 @@ For code, use relative paths without output folder name. Do not include any othe
 
         function getCurrentBotName() {
             const chat = dataManager.getCurrentChat();
-            if(!chat) return 'Bot';
+            if(!chat) return 'Leo';
             if(dataManager.state.currentMode === 'chat') {
-                try { return JSON.parse(chat.metadata.personality).name || 'Bot'; } catch(e) { return 'Bot'; }
+                try { return chat.metadata.personality.name || 'Leo'; } catch(e) { return 'Leo'; }
             }
             return 'Leo';
         }
@@ -1737,7 +1737,7 @@ For code, use relative paths without output folder name. Do not include any othe
                     if (!pers.isManual) { 
                         systemPrompt = `Analyze the following chats to mimic the style:\n${pers.content}\n\nNow act as that person. Your name is ${pers.name}.`;
                     } else {
-                        systemPrompt = pers.content; 
+                        systemPrompt = `${pers.content}\nYour name is ${pers.name}.`; 
                     }
                 } catch(e) { systemPrompt = chat.metadata.personality.content || "You are a helpful AI assistant."; }
             } else if (dataManager.state.currentMode === 'custom') {
@@ -1962,11 +1962,12 @@ For code, use relative paths without output folder name. Do not include any othe
             if (settings.advanced.requestTemplate) {
                 try {
                     let template = settings.advanced.requestTemplate;
-                    template = template.replace(/{{model}}/g, settings.modelName);
+                    template = template.replace(/{{model}}/g, JSON.stringify(settings.modelName));
                     template = template.replace(/{{messages}}/g, JSON.stringify(messages));
                     template = template.replace(/{{temperature}}/g, settings.temperature);
                     body = JSON.parse(template);
-                } catch(e) { console.error("Template error", e); }
+                    body.stream = false;
+                } catch(e) { console.error("Template error", e);}
             }
 
             try {
@@ -1983,27 +1984,34 @@ For code, use relative paths without output folder name. Do not include any othe
                     signal: signal
                 });
 
+                const text = await response.text();
+                let parsed;
+                try {
+                    parsed = JSON.parse(text);
+                } catch {
+                    parsed = text; // fallback if not JSON
+                }
+
                 if (!response.ok) {
                     let errorMsg = `Proxy Error ${response.status}`;
-                    try {
-                        const errData = await response.json();
-                        if (errData.error && typeof errData.error === 'string') {
-                            errorMsg = `Error: ${errData.error}`;
-                        } else if (errData.error && errData.error.message) {
-                            errorMsg = `Error: ${errData.error.message}`;
-                        } else {
-                            const str = JSON.stringify(errData);
-                            errorMsg = `Error: ${str.substring(0, 100)}...`;
-                        }
-                    } catch (e) {
-                        errorMsg = `Error: ${response.statusText}`;
+                    if (typeof parsed === 'object') {
+                    if (parsed.error && typeof parsed.error === 'string') {
+                        errorMsg = `Error: ${parsed.error}`;
+                    } else if (parsed.error && parsed.error.message) {
+                        errorMsg = `Error: ${parsed.error.message}`;
+                    } else if (parsed.message) {
+                        errorMsg = `Error: ${parsed.message}`;
+                    } else {
+                        errorMsg = `Error: ${JSON.stringify(parsed).substring(0, 100)}`;
+                    }
+                    } else {
+                    errorMsg = `Error ${response.status}: ${String(parsed).substring(0, 100)}`;
                     }
                     throw new Error(errorMsg);
                 }
-                
-                const data = await response.json();
+
                 const path = settings.advanced.responsePath || 'choices.0.message.content';
-                const content = getValueByPath(data, path);
+                const content = getValueByPath(parsed, path);
                 
                 if (!content) {
                     throw new Error("API response format incorrect or empty. Check 'Response JSON Path' in settings.");
@@ -2282,10 +2290,23 @@ For code, use relative paths without output folder name. Do not include any othe
             const temp = document.getElementById('setting-temp').value;
             const proxyUrl = document.getElementById('setting-proxy-url').value || PROXY_SERVER_URL;
             const resPath = document.getElementById('setting-res-path').value;
+            const reqTemp = document.getElementById('setting-req-template').value;
             
             if(!endpoint || !provider) {
                 showToast('Please fill in Provider and Endpoint', 'error');
                 return;
+            }
+
+            let body = { model: model, messages: [{role:'user', content:'hi'}], temperature: parseFloat(temp), stream: false };
+            if (reqTemp) {
+                try {
+                    let template = reqTemp;
+                    template = template.replace(/{{model}}/g, JSON.stringify(model));
+                    template = template.replace(/{{messages}}/g, JSON.stringify([{role:'user', content:'hi'}]));
+                    template = template.replace(/{{temperature}}/g, temp);
+                    body = JSON.parse(template);
+                    body.stream = false;
+                } catch(e) { showToast("Request JSON template is faulty. Click i to know it's example structure. Check console for more info.", 'error'); console.error("Template error", e); return;}
             }
             
             const originalText = btn.textContent;
@@ -2293,34 +2314,43 @@ For code, use relative paths without output folder name. Do not include any othe
             btn.disabled = true;
             try {
                 if (!navigator.onLine) throw new Error("No internet connection.");
-                const body = { model: model, messages: [{role:'user', content:'hi'}], temperature: parseFloat(temp), stream: false };
                 const res = await fetch(proxyUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ endpoint, apiKey: key, body })
                 });
-                if(res.ok) {
-                    const data = await res.json();
+                if (res.ok) {
+                    const text = await res.text();
+                    let data;
+                    try { 
+                        data = JSON.parse(text); 
+                    } catch { data = text; }
                     const reply = getValueByPath(data, resPath || 'choices.0.message.content');
-                    if(reply) showToast('API Connection Successful!', 'success');
-                    else showToast('API Connected but response format might be incorrect.', 'error');
+                    if (reply) showToast('API Connection Successful!', 'success');
+                    else showToast('API Connected but response format might be incorrect.', 'error'); 
                 } else {
-                    let errorMsg = `Error: ${res.status}`;
+                    const text = await res.text();
+                    let errorMsg;
                     try {
-                        const errData = await res.json();
+                        const errData = JSON.parse(text);
                         if (errData.error && typeof errData.error === 'string') errorMsg = `Error: ${errData.error}`;
                         else if (errData.error && errData.error.message) errorMsg = `Error: ${errData.error.message}`;
                         else if (errData.message) errorMsg = `Error: ${errData.message}`;
-                        else errorMsg = `Error: ${JSON.stringify(errData).substring(0, 50)}...`;
-                    } catch(e) {
-                        errorMsg = `Error ${res.status}. Check console.`;
-                        console.error('Check API failed:', await res.text());
+                        else errorMsg = `Error: ${JSON.stringify(errData).substring(0, 100)}...`;
+                    } catch (e) {
+                        errorMsg = `Error ${res.status}: ${text.substring(0, 100)}...`;
+                        console.error('Check API failed:', text);
                     }
                     showToast(errorMsg, 'error');
                 }
             } catch(e) {
+                if (e.message.includes('Failed to fetch')) {
+                    showToast('Network Error: Could not reach proxy server. Please ensure server.js is running.', 'error');
+                    console.error(e);
+                } else {
                 showToast(e.message || 'Connection failed. Check console.', 'error');
                 console.error(e);
+                }
             } finally {
                 btn.textContent = originalText;
                 btn.disabled = false;
@@ -2393,11 +2423,11 @@ For code, use relative paths without output folder name. Do not include any othe
                 nameGroup.style.display = 'block';
                 try {
                     const p = chat.metadata.personality;
-                    document.getElementById('pers-name').value = p.name || 'Bot';
+                    document.getElementById('pers-name').value = p.name || 'Leo';
                     document.getElementById('pers-content').value = p.content || '';
                     check.checked = !p.isManual;
                 } catch(e) {
-                    document.getElementById('pers-name').value = 'Bot';
+                    document.getElementById('pers-name').value = 'Leo';
                     document.getElementById('pers-content').value = chat.metadata.personality.content || '';
                 }
                 togglePersInputType();
@@ -2436,6 +2466,10 @@ For code, use relative paths without output folder name. Do not include any othe
                     content: content,
                     isManual: !isUpload 
                 };
+                if (!name) {
+                    showToast('Name cannot be empty.', 'error');
+                    return;
+                }
                 chat.metadata.personality = persObj;
             }
             if(!dataManager.draftChat) dataManager._saveState();
